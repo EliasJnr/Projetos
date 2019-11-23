@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eliasjr.itbam.projetos.exception.RecordNotFoundException;
@@ -18,14 +19,15 @@ import com.eliasjr.itbam.projetos.model.ProjectEntity;
 import com.eliasjr.itbam.projetos.service.ProjectService;
 
 @RestController
-@RequestMapping("/projects")
+@RequestMapping("/api/projeto")
 public class ProjectController {
 
 	@Autowired
 	ProjectService service;
 
 	@GetMapping
-	public ResponseEntity<List<ProjectEntity>> getAllEmployees() {
+	@RequestMapping(value = "/projects", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<List<ProjectEntity>> getAll() {
 		List<ProjectEntity> list = service.getAllProjects();
 
 		return new ResponseEntity<List<ProjectEntity>>(list, new HttpHeaders(), HttpStatus.OK);
@@ -45,7 +47,7 @@ public class ProjectController {
 	}
 
 	@DeleteMapping("/{id}")
-	public HttpStatus deleteEmployeeById(@PathVariable("id") Long id) throws RecordNotFoundException {
+	public HttpStatus deleteProjectById(@PathVariable("id") Long id) throws RecordNotFoundException {
 		service.deleteProjectById(id);
 		return HttpStatus.FORBIDDEN;
 	}

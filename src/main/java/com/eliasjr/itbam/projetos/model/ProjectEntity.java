@@ -1,10 +1,9 @@
 package com.eliasjr.itbam.projetos.model;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,17 +12,17 @@ import javax.persistence.Table;
 public class ProjectEntity {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(name = "nome")
 	private String nome;
 
 	@Column(name = "dataInicio")
-	private Date dataInicio;
+	private String dataInicio;
 
 	@Column(name = "dataFim")
-	private Date dataFim;
+	private String dataFim;
 
 	@Column(name = "valor")
 	private double valor;
@@ -44,19 +43,19 @@ public class ProjectEntity {
 		this.nome = nome;
 	}
 
-	public Date getDataInicio() {
+	public String getDataInicio() {
 		return dataInicio;
 	}
 
-	public void setDataInicio(Date dataInicio) {
+	public void setDataInicio(String dataInicio) {
 		this.dataInicio = dataInicio;
 	}
 
-	public Date getDataFim() {
+	public String getDataFim() {
 		return dataFim;
 	}
 
-	public void setDataFim(Date dataFim) {
+	public void setDataFim(String dataFim) {
 		this.dataFim = dataFim;
 	}
 
@@ -68,6 +67,4 @@ public class ProjectEntity {
 		this.valor = valor;
 	}
 
-	
-	
 }
