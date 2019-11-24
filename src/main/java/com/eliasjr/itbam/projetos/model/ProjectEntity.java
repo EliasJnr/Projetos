@@ -12,8 +12,8 @@ import javax.persistence.Table;
 public class ProjectEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 
 	@Column(name = "nome")
 	private String nome;
