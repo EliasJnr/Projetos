@@ -35,8 +35,7 @@ public class ProjectController {
 	}
 
 	@GetMapping("/projects/{id}")
-	public ResponseEntity<ProjectEntity> getById(@PathVariable(value = "id") Long id)
-			throws RecordNotFoundException {
+	public ResponseEntity<ProjectEntity> getById(@PathVariable(value = "id") Long id) throws RecordNotFoundException {
 		ProjectEntity obj = service.getProjectById(id);
 		return ResponseEntity.ok().body(obj);
 	}

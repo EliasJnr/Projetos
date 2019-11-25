@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.eliasjr.itbam.projetos.model.ProjectEntity;
 
 @Repository
-public interface ProjectRepository extends JpaRepository<ProjectEntity, Long>{
-	
-	
-	
+public interface ProjectRepository extends JpaRepository<ProjectEntity, Long> {
+
 }
