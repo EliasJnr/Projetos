@@ -69,7 +69,7 @@ public class ControllerProjectTest {
 	}
 
 	@Test
-	public void testUpdateEmployee() {
+	public void testUpdate() {
 		int id = 1;
 		ProjectEntity entity = restTemplate.getForObject(getRootUrl() + "/projects/" + id, ProjectEntity.class);
 		entity.setNome("nome 2");
@@ -77,9 +77,9 @@ public class ControllerProjectTest {
 
 		restTemplate.put(getRootUrl() + "/projects/" + id, entity);
 
-		ProjectEntity updatedEmployee = restTemplate.getForObject(getRootUrl() + "/projects/" + id,
+		ProjectEntity updated = restTemplate.getForObject(getRootUrl() + "/projects/" + id,
 				ProjectEntity.class);
-		assertNotNull(updatedEmployee);
+		assertNotNull(updated);
 	}
 
 	@Test
