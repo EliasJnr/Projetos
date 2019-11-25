@@ -35,19 +35,19 @@ public class ProjectController {
 	}
 
 	@GetMapping("/projects/{id}")
-	public ResponseEntity<ProjectEntity> getEmployeeById(@PathVariable(value = "id") Long id)
+	public ResponseEntity<ProjectEntity> getById(@PathVariable(value = "id") Long id)
 			throws RecordNotFoundException {
 		ProjectEntity obj = service.getProjectById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 
 	@PostMapping("/projects")
-	public ProjectEntity createEmployee(@Valid @RequestBody ProjectEntity entity) throws RecordNotFoundException {
+	public ProjectEntity create(@Valid @RequestBody ProjectEntity entity) throws RecordNotFoundException {
 		return service.createOrUpdateProject(entity);
 	}
 
 	@PutMapping("/projects/{id}")
-	public ResponseEntity<ProjectEntity> updateEmployee(@PathVariable(value = "id") Long id,
+	public ResponseEntity<ProjectEntity> update(@PathVariable(value = "id") Long id,
 			@Valid @RequestBody ProjectEntity newEntity) throws RecordNotFoundException {
 		final ProjectEntity updated = service.createOrUpdateProject(newEntity);
 		return ResponseEntity.ok(updated);
